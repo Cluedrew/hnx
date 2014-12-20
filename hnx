@@ -1,0 +1,89 @@
+#!/bin/bash
+# hnx - qwerty and left-hand dvorak
+# Installed in /usr/local/bin
+
+keyboardstate=
+
+if [ $(setxkbmap -query | grep layout | grep -c us) = 0 ]; then
+    keyboardstate=unknown
+elif [ $(setxkbmap -query | grep -c variant) = 1 ]; then
+    if [ $(setxkbmap -query | grep variant | grep -c dvorak-l) = 1 ]; then
+        keyboardstate=dvorak
+    else
+        keyboardstate=unknown
+    fi
+else
+    keyboardstate=qwerty
+fi
+
+case $1 in
+"")
+    if [ "$keyboardstate" = "dvorak" ]; then
+        setxkbmap us
+        echo Switched to qwerty keyboard.
+    elif [ "$keyboardstate" = "qwerty" ]; then
+        setxkbmap us dvorak-l
+        echo Switched to left-hand dvorak.
+    else
+        setxkbmap us
+        echo Switched to qwerty keyboard.
+    fi
+    ;;
+v|--query)
+    if [ "$keyboardstate" = "dvorak" ]; then
+        echo Left-hand dvorak keyboard in use.
+    elif [ "$keyboardstate" = "qwerty" ]; then
+        echo Qwerty keyboard layout in use.
+    else
+        echo Unknown keyboard layout.
+    fi
+    ;;
+--help-old)
+    echo printing help
+    echo <<- _eof_
+	NAME
+	     hnx - switches between qwerty and left hand dvorak keyboards
+	     
+	SYNOPSIS
+	     hnx [OPTION]
+	     hnx ( v | --query )
+	     hnx ( --help | --version )
+	     
+	DESCRIPTION
+     Switches between the qwerty and left hand dvorak keyboards with every call of
+     hnx, if the keyboard is not currantly set to either than it will switch to then
+     the system will switch to qwerty. This functionality is overidden by all of the
+     OPTIONs. Implemented using setxkbmap.
+     
+     The letters h, n, v & x are the only keys that stay the same between the two
+     keyboards, hence their use in the command's name and the v option.
+	
+	OPTIONS
+	     v, --query
+	          displays the currant keyboard and exits
+	          the v option must not be preceaded by a -
+	     --help
+	          display this help and exit
+	     --version
+	          output version information and exit
+	
+	AUTHOR
+	     Written by Cluedrew
+	
+	SEE ALSO
+	     setxkbmap(1)
+	
+	_eof_
+    ;;
+--help)
+    echo "hnx switches between the dvorak left-hand and qwerty keyboards.
+Use the v opition to see what keyboard is currantly set.
+See man hnx for more information. (some day, fingers crossed)"
+    ;;
+--version)
+    echo hnx version 1.0
+    ;;
+*)
+    echo Unknown option, use no option to change keyboards or --help for help.
+    ;;
+esac

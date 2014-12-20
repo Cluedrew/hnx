@@ -1,0 +1,39 @@
+.\" My man page for hnx, work-in-progress.
+.TH HNX 7 2014-10-17 "GNU" "Cluedrew's Programs Manual"
+.SH NAME
+hnx - switches between qwerty and left hand dvorak keyboards
+
+.SH SYNOPSIS
+.B hnx
+.RB [ OPTION ]
+     hnx ( v | --query )
+     hnx ( --help | --version )
+     
+.SH DESCRIPTION
+     Switches between the qwerty and left hand dvorak keyboards with every call of
+     hnx, if the keyboard is not currantly set to either than it will switch to then
+     the system will switch to qwerty. This functionality is overidden by all of the
+     OPTIONs. Implemented using setxkbmap.
+     
+     The letters h, n, v & x are the only keys that stay the same between the two
+     keyboards, hence their use in the command's name and the v option.
+
+.SH OPTIONS
+     v, --query
+          displays the currant keyboard and exits
+          the v option must not be preceaded by a -
+     --help
+          display this help and exit
+     --version
+          output version information and exit
+
+.SH EXIT STATUS
+0 success
+1 minor error
+
+.SH AUTHOR
+     Written by Cluedrew
+
+.SH SEE ALSO
+.B setxkbmap
+(1) 
