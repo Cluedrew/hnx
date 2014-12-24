@@ -23,7 +23,7 @@ hnx - switches between qwerty and left hand dvorak keyboards
           displays the currant keyboard and exits
           the v option must not be preceaded by a -
      --help
-          display this help and exit
+          display a help summary and exit
      --version
           output version information and exit
 
@@ -36,4 +36,4 @@ hnx - switches between qwerty and left hand dvorak keyboards
 
 .SH SEE ALSO
 .B setxkbmap
-(1) 
+(1)

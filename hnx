@@ -38,50 +38,14 @@ v|--query)
         echo Unknown keyboard layout.
     fi
     ;;
---help-old)
-    echo printing help
-    echo <<- _eof_
-	NAME
-	     hnx - switches between qwerty and left hand dvorak keyboards
-	     
-	SYNOPSIS
-	     hnx [OPTION]
-	     hnx ( v | --query )
-	     hnx ( --help | --version )
-	     
-	DESCRIPTION
-     Switches between the qwerty and left hand dvorak keyboards with every call of
-     hnx, if the keyboard is not currantly set to either than it will switch to then
-     the system will switch to qwerty. This functionality is overidden by all of the
-     OPTIONs. Implemented using setxkbmap.
-     
-     The letters h, n, v & x are the only keys that stay the same between the two
-     keyboards, hence their use in the command's name and the v option.
-	
-	OPTIONS
-	     v, --query
-	          displays the currant keyboard and exits
-	          the v option must not be preceaded by a -
-	     --help
-	          display this help and exit
-	     --version
-	          output version information and exit
-	
-	AUTHOR
-	     Written by Cluedrew
-	
-	SEE ALSO
-	     setxkbmap(1)
-	
-	_eof_
-    ;;
 --help)
     echo "hnx switches between the dvorak left-hand and qwerty keyboards.
+Use no option to switch between the keyboards.
 Use the v opition to see what keyboard is currantly set.
-See man hnx for more information. (some day, fingers crossed)"
+Check the man page for more information. (some day, fingers crossed)"
     ;;
 --version)
-    echo hnx version 1.0
+    echo hnx version 1.0.1
     ;;
 *)
     echo Unknown option, use no option to change keyboards or --help for help.
