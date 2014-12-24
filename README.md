@@ -9,6 +9,7 @@ same over the two keyboard layouts, so the user doesn't have to know the other l
 layout is in use at the time.
 
 PLANS:
--Look into xkbcomp
--Create a man(ual) page for the script.
--Turn the script into a full package (.deb)
+
+Create a man(ual) page for the script.
+
+Turn the script into a full package (.deb)
